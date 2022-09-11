@@ -2,7 +2,7 @@ import propTypes from 'prop-types';
 import { FilterBox, FilterInput } from './ContactFilterStyled';
 import { FormLabel } from '../ContactForm/ContactFormStyled';
 
-export const ContactFilter = ({ filter, onFilter }) => {
+export const ContactFilter = ({ filterValue, onChange }) => {
   return (
     <FilterBox>
       <FormLabel htmlFor="filter">Find contacts by name</FormLabel>
@@ -10,8 +10,8 @@ export const ContactFilter = ({ filter, onFilter }) => {
         <FilterInput
           type="text"
           name="filter"
-          value={filter}
-          onChange={onFilter}
+          value={filterValue}
+          onChange={onChange}
         />
       </div>
     </FilterBox>
@@ -19,6 +19,6 @@ export const ContactFilter = ({ filter, onFilter }) => {
 };
 
 ContactFilter.propTypes = {
-  onFilter: propTypes.func,
-  filter: propTypes.string,
+  onChange: propTypes.func,
+  filterValue: propTypes.string,
 };

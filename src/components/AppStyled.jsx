@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { centerBlock, font, widthHeight } from '../style/mixins';
+import { SpinnerCircularSplit } from 'spinners-react';
 
 export const Container = styled.div`
   padding: 20px 20px;
@@ -28,4 +29,19 @@ export const TitleContacts = styled.h2`
   margin-top: 30px;
   color: ${props => props.theme.colors.primaryText};
   text-shadow: 1px 1px 1px ${props => props.theme.colors.white};
+`;
+
+export const TitleError = styled.p`
+font-family: ${props => props.theme.fonts.secondary};
+  ${widthHeight(240)};
+  ${font({ fs: 20, fw: 500, lh: 20 })};
+  margin-bottom: 10px;
+  color: ${props => props.theme.colors.red};
+  
+
+`
+
+export const Spinner = styled(SpinnerCircularSplit)`
+  margin: 0 auto;
+ 
 `;

@@ -2,15 +2,15 @@ import propTypes from 'prop-types';
 import { ContactItem } from 'components/ContactItem/ContactItem';
 import { List } from './ContactListStyled';
 
-export const ContactList = ({ filterContacts, onDelete }) => {
+export const ContactList = ({ contacts, onDelete }) => {
   return (
     <List>
-      {filterContacts.map(({ name, number, id }) => (
+      {contacts.map(({ name, phone, id }) => (
         <ContactItem
           key={id}
           name={name}
           id={id}
-          number={number}
+          phone={phone}
           onDelete={onDelete}
         />
       ))}
@@ -19,6 +19,6 @@ export const ContactList = ({ filterContacts, onDelete }) => {
 };
 
 ContactList.propTypes = {
-  filterContacts: propTypes.array.isRequired,
-  onDelete: propTypes.func.isRequired,
+ contacts: propTypes.array.isRequired,
+  onDelete: propTypes.func.isRequired, 
 };
