@@ -2,7 +2,13 @@ import React from 'react';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { ContactFilter } from './ContactFilter/ContactFilter';
-import { Container, TitlePhoneBook, TitleContacts,TitleError, Spinner } from './AppStyled';
+import {
+  Container,
+  TitlePhoneBook,
+  TitleContacts,
+  TitleError,
+  Spinner,
+} from './AppStyled';
 import { useSelector, useDispatch } from 'react-redux';
 import { filterContacts } from '../redux/filter';
 import {
@@ -23,22 +29,13 @@ export const App = () => {
   const showContacts = contacts && !isFetching;
   const errorMessage = 'Sorry , no data found.';
 
-  const contactAntiDuplicator = name => {
-    const normalizedName = name.toLowerCase();
-    return contacts.some(
-      contactName => normalizedName === contactName.name.toLowerCase()
-    );
-  };
 
   const addContact = ({ name, number }) => {
-    if (contactAntiDuplicator(name)) {
-      toast.error(`${name} is already in contacts`);
-      return;
-    } else {
-      createContact({ name, number });
+        createContact({ name, number });
       if (isSuccess) {
         toast.success(`${name} successfully adding in the phonebook`);
-      }
+        return;
+      
     }
   };
 

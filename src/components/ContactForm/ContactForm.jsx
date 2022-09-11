@@ -2,6 +2,7 @@ import { Formik } from 'formik';
 import { nanoid } from 'nanoid';
 import propTypes from 'prop-types';
 import { MainForm, AddButton, FormLabel, Input } from './ContactFormStyled';
+import toast from 'react-hot-toast';
 
 export const ContactForm = ({ onSubmit, contacts }) => {
   const handleSubmit = ({ name, number }, { resetForm }) => {
@@ -9,7 +10,7 @@ export const ContactForm = ({ onSubmit, contacts }) => {
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
     if (nameInContacts) {
-      alert(`${name} is already in contacts`);
+      toast.error(`${name} is already in contacts`);
       return;
     }
     const contact = { id: nanoid(), name, number };
